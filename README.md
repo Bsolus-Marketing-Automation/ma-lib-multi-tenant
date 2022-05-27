@@ -1,13 +1,7 @@
-<h1 align="center">nestjs-tenancy</h1>
+<h1 align="center">ma-lib-multi-tenant</h1>
 
 <p align="center">
-  A simple easy to use multitenancy module for NestJs and Mongoose
-</p>
-
-<p align="center">
-<a href="https://www.npmjs.com/~sandeepsuvit" target="_blank"><img src="https://img.shields.io/npm/v/@needle-innovision/nestjs-tenancy.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~sandeepsuvit" target="_blank"><img src="https://img.shields.io/npm/l/@needle-innovision/nestjs-tenancy.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~sandeepsuvit" target="_blank"><img src="https://img.shields.io/npm/dm/@needle-innovision/nestjs-tenancy.svg" alt="NPM Downloads" /></a>
+  A simple easy to use multitenancy module for NestJS and Mongoose
 </p>
 
 ## Description
@@ -17,7 +11,7 @@
 ## Installation
 
 ```bash
-$ npm i --save @needle-innovision/nestjs-tenancy
+$ npm i --save @bsolus-marketing-automation/ma-lib-multi-tenant
 ```
 
 ## Basic usage
@@ -318,13 +312,6 @@ There are cases when using Mongo Transactions we wouldn't get the flexibility of
 mongoose to automatically initialize the empty collection for us. In that case
 we can make use of the property in `TenancyModuleOptions` which is `forceCreateCollections: true`
 (set to false by default) to automatically initialize all collections that are mapped to `TenancyModule`.
-
-## Requirements
-
-1.  @nest/mongoose +6.4.0
-2.  @nestjs/common +6.10.1
-3.  @nestjs/core +6.10.1
-4.  mongoose (with typings `@types/mongoose`) +5.7.12
 
 ## Test
 
