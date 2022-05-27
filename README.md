@@ -20,7 +20,7 @@ $ npm i --save @bsolus-marketing-automation/ma-lib-multi-tenant
 
 ```typescript
 import { Module } from "@nestjs/common";
-import { TenancyModule } from "@needle-innovision/nestjs-tenancy";
+import { TenancyModule } from "@bsolus-marketing-automation/ma-lib-multi-tenant";
 import { CatsModule } from "./cat.module.ts";
 
 @Module({
@@ -65,7 +65,7 @@ Inject Cat for `CatsModule`
 
 ```typescript
 import { Module } from '@nestjs/common';
-import { TenancyModule } from '@needle-innovision/nestjs-tenancy';
+import { TenancyModule } from '@bsolus-marketing-automation/ma-lib-multi-tenant';
 import { CatsController } from './cats.controller';
 import { CatsService } from './cats.service';
 import { Cat, CatSchema } from './schemas/cat.schema';
@@ -86,7 +86,7 @@ Get the cat model in a service
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { InjectTenancyModel } from '@needle-innovision/nestjs-tenancy';
+import { InjectTenancyModel } from '@bsolus-marketing-automation/ma-lib-multi-tenant';
 import { Model } from 'mongoose';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { Cat } from './schemas/cat.schema';
@@ -147,7 +147,7 @@ Here we assume that `X-TENANT-ID` is passed in the request header so that its av
 **custom-tenant.validator.ts**
 
 ```typescript
-import { TenancyValidator } from '@app/tenancy';
+import { TenancyValidator } from '@bsolus-marketing-automation/ma-lib-multi-tenant';
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -240,7 +240,7 @@ Finally you will also need to modify the module configuration.
 
 ```typescript
 import { Module } from "@nestjs/common";
-import { TenancyModule } from "@needle-innovision/nestjs-tenancy";
+import { TenancyModule } from "@bsolus-marketing-automation/ma-lib-multi-tenant";
 import { CatsModule } from "./cat.module.ts";
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './config';
@@ -289,7 +289,7 @@ For enabling this you need to modify your configuration like below.
 
 ```typescript
 import { Module } from "@nestjs/common";
-import { TenancyModule } from "@needle-innovision/nestjs-tenancy";
+import { TenancyModule } from "@bsolus-marketing-automation/ma-lib-multi-tenant";
 import { CatsModule } from "./cat.module.ts";
 
 @Module({
