@@ -1,0 +1,33 @@
+name: Patch version update
+
+on: workflow_dispatch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Patch version update
+      run: |
+        git config user.name "$(git log -n 1 --pretty=format:%an)"
+        git config user.email "$(git log -n 1 --pretty=format:%ae)"
+        git pull
+        npm install -g eslint
+        npm install
+        npm run test:cov
+        npm run build 
+        npm version patch --no-git-tag
+        git add package.json
+        git add package-lock.json
+        git commit -m "[skip CI]"
+        git push     
