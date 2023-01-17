@@ -1,4 +1,4 @@
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces';
+import { ModuleMetadata, Type } from '@nestjs/common/interfaces'
 
 /**
  * Options for synchronous setup
@@ -10,32 +10,32 @@ export interface TenancyModuleOptions extends Record<string, any> {
     /**
      * If `true`, tenant id will be extracted from the subdomain
      */
-    isTenantFromSubdomain?: boolean;
+    isTenantFromSubdomain?: boolean
 
     /**
      * Tenant id will be extracted using the keyword from the request header
      */
-    tenantIdentifier?: string;
+    tenantIdentifier?: string
 
     /**
      * URI for the tenant database
      */
-    uri: (uri: string) => Promise<string> | string;
+    uri: (uri: string) => Promise<string> | string
 
     /**
      * Used for applying custom validations
      */
-    validator?: (tenantId: string) => TenancyValidator;
+    validator?: (tenantId: string) => TenancyValidator
 
     /**
      * Options for the database
      */
-    options?: any;
+    options?: any
 
     /**
      * Whitelist following subdomains
      */
-    whitelist?: any;
+    whitelist?: any
 
     /**
      * Option to create the collections that are mapped to the tenant module
@@ -43,7 +43,7 @@ export interface TenancyModuleOptions extends Record<string, any> {
      * first time. This option is useful in case on mongo transactions, where
      * transactions doens't create a collection if it does't exist already.
      */
-    forceCreateCollections?: boolean;
+    forceCreateCollections?: boolean
 }
 
 /**
@@ -56,7 +56,7 @@ export interface TenancyModuleOptions extends Record<string, any> {
  * @interface TenancyOptionsFactory
  */
 export interface TenancyOptionsFactory {
-    createTenancyOptions():Promise<TenancyModuleOptions> | TenancyModuleOptions;
+    createTenancyOptions(): Promise<TenancyModuleOptions> | TenancyModuleOptions
 }
 
 /**
@@ -65,11 +65,14 @@ export interface TenancyOptionsFactory {
  * @export
  * @interface TenancyModuleAsyncOptions
  */
-export interface TenancyModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
-    useExisting?: Type<TenancyOptionsFactory>;
-    useClass?: Type<TenancyOptionsFactory>;
-    useFactory?: (...args: any[]) => Promise<TenancyModuleOptions> | TenancyModuleOptions;
-    inject?: any[];
+export interface TenancyModuleAsyncOptions
+    extends Pick<ModuleMetadata, 'imports'> {
+    useExisting?: Type<TenancyOptionsFactory>
+    useClass?: Type<TenancyOptionsFactory>
+    useFactory?: (
+        ...args: any[]
+    ) => Promise<TenancyModuleOptions> | TenancyModuleOptions
+    inject?: any[]
 }
 
 /**
@@ -82,7 +85,6 @@ export interface TenancyModuleAsyncOptions extends Pick<ModuleMetadata, 'imports
  * @interface TenancyValidator
  */
 export interface TenancyValidator {
-
     /**
      * Set the tenant id and return the instance of the class
      * Note: This is the method that should be called by the implementing
@@ -92,12 +94,12 @@ export interface TenancyValidator {
      * @returns {TenancyValidator}
      * @memberof TenancyValidator
      */
-    setTenantId(tenantId: string): TenancyValidator;
+    setTenantId(tenantId: string): TenancyValidator
 
     /**
      * This call will be invoked internally by the library
      *
      * @memberof TenancyValidator
      */
-    validate(): Promise<void>;
+    validate(): Promise<void>
 }

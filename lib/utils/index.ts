@@ -1,1 +1,1 @@
-export * from './tenancy.utils';
+export * from './tenancy.utils'

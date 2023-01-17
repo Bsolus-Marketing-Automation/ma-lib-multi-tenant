@@ -1,1 +1,1 @@
-export * from './tenancy.factory';
+export * from './tenancy.factory'
