@@ -1,1 +1,1 @@
-export * from './tenancy.decorator';
+export * from './tenancy.decorator'

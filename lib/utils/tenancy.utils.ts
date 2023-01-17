@@ -1,4 +1,4 @@
-import { DEFAULT_TENANT_DB_CONNECTION } from '../tenancy.constants';
+import { DEFAULT_TENANT_DB_CONNECTION } from '../tenancy.constants'
 
 /**
  * Get tenant model name formatted
@@ -8,7 +8,7 @@ import { DEFAULT_TENANT_DB_CONNECTION } from '../tenancy.constants';
  * @returns
  */
 export function getTenantModelToken(model: string) {
-    return `${model}Model`;
+    return `${model}Model`
 }
 
 /**
@@ -19,7 +19,7 @@ export function getTenantModelToken(model: string) {
  * @returns
  */
 export function getTenantModelDefinitionToken(model: string) {
-    return `${model}Definition`;
+    return `${model}Definition`
 }
 
 /**
@@ -32,5 +32,5 @@ export function getTenantModelDefinitionToken(model: string) {
 export function getTenantConnectionToken(name?: string) {
     return name && name !== DEFAULT_TENANT_DB_CONNECTION
         ? `${name}TenantConnection`
-        : DEFAULT_TENANT_DB_CONNECTION;
+        : DEFAULT_TENANT_DB_CONNECTION
 }
